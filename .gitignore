@@ -1,0 +1,11 @@
+# Local data, experiment outputs, and release preparation artifacts.
+/temporary/
+/data/
+/exp/
+/weights/
+/u2net/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.DS_Store

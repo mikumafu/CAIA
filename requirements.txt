@@ -1,0 +1,20 @@
+# Training, evaluation, and dual-blur preprocessing dependencies (Python 3.10).
+# Install the appropriate CUDA-enabled torch/torchvision build first.
+torch==2.9.0
+torchvision==0.24.0
+numpy==2.2.6
+scipy==1.15.3
+Pillow==11.3.0
+open_clip_torch==2.29.0
+pytorch-lightning==2.4.0
+tensorboard==2.14.0
+omegaconf==2.3.0
+tqdm==4.67.1
+# Pin model-loading and training utilities to the validated environment.
+timm==1.0.22
+torchmetrics==1.8.2
+lightning-utilities==0.15.2
+huggingface-hub==0.36.0
+safetensors==0.7.0
+# Includes cv2.saliency; install only this OpenCV distribution.
+opencv-contrib-python==4.12.0.88
