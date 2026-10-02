@@ -1,0 +1,56 @@
+timesteps: [0, 201]
+
+name: "${dataset}_${exp_setting}_ubp_finetune_attn_${brain_backbone}_${vision_backbone}"
+
+# Neural encoder
+models:
+  brain:
+    target: "base.eeg_encoder.${brain_backbone}"
+    params:
+        c_num: 271
+        z_dim: ${z_dim}
+        timesteps: ${timesteps}
+        use_denoising: true
+        ib_beta: 0.01
+        learnable_scales: true
+
+# Preprocessed data and retrieval batches
+data:
+  data_dir: data/things-meg/Preprocessed_data
+  selected_ch: False
+
+  model_type: ${vision_backbone}
+  pretrained: openai
+
+  train_batch_size: 128
+  validation_classes: 200
+  validation_seed: 0
+  val_batch_size: 200
+  test_batch_size: 200
+
+  train_avg: True
+  test_avg: True
+  timesteps: ${timesteps}
+
+  num_workers: 0
+
+# Neural-conditioned visual fusion
+attention:
+  eeg_dim: ${z_dim}
+  img_channels: 3
+
+# Optimization and auxiliary loss weights
+train:
+  epoch: ${epoch}
+  optimizer: AdamW
+  lr: ${lr}
+  weight_decay: 1e-4
+  boundary_weight: 0.005
+  warmup_epochs: 0
+
+use_denoising: true
+
+loss:
+  boundary_alpha: 0.05
+
+save_dir: 'exp/MEG/caia'
