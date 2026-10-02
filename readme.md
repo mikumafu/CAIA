@@ -99,6 +99,10 @@ Training automatically saves and evaluates the best Top-1, best Top-5, and final
 
 Default output directories are `exp/caia` for EEG and `exp/MEG/caia` for MEG.
 
+## Acknowledgements
+
+We thank the authors of [Uncertainty-aware-Blur-Prior](https://github.com/HaitaoWuTJU/Uncertainty-aware-Blur-Prior) for open-sourcing their work. Their code and ideas provided helpful reference and inspiration for parts of this project.
+
 ## License
 
 [Apache License 2.0](LICENSE). Dataset and pretrained model licenses remain with their respective owners.
